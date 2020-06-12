@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ActivityIndicator: View {
-  @State private var isAnimating: Bool = false
   @State private var currentIndex: Int = 0
 
   func incrementIndex() {
@@ -34,7 +33,6 @@ struct ActivityIndicator: View {
     }
     .aspectRatio(1, contentMode: .fit)
     .onAppear {
-      self.isAnimating = true
       self.incrementIndex()
     }
   }

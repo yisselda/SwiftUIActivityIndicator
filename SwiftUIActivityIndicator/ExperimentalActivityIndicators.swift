@@ -16,7 +16,6 @@ enum ExperimentalActivityIndicatorsType: CaseIterable {
 
 struct ExperimentalActivityIndicators: View {
   var indicatorType : ExperimentalActivityIndicatorsType = .uikit
-  @State private var isAnimating: Bool = false
   @State private var currentIndex: Int = 0
 
   func incrementIndex() {
@@ -41,7 +40,6 @@ struct ExperimentalActivityIndicators: View {
     }
     .aspectRatio(1, contentMode: .fit)
     .onAppear {
-      self.isAnimating = true
       self.incrementIndex()
     }
   }
