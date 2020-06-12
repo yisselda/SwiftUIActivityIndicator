@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-enum ExperimentalActivityIndicatorsType: CaseIterable {
+enum ExperimentalActivityIndicatorType: CaseIterable {
   case uikit
   case snail
   case movingsnail
 }
 
-struct ExperimentalActivityIndicators: View {
-  var indicatorType : ExperimentalActivityIndicatorsType = .uikit
+struct ExperimentalActivityIndicator: View {
+  var indicatorType : ExperimentalActivityIndicatorType = .uikit
   var speed : Int = 50
   @State private var currentIndex: Int = 0
 
@@ -48,7 +48,7 @@ struct ExperimentalActivityIndicators: View {
     }
   }
 
-  func setHeight(height: CGFloat, index: Int, indicatorType: ExperimentalActivityIndicatorsType = .uikit) -> CGFloat {
+  func setHeight(height: CGFloat, index: Int, indicatorType: ExperimentalActivityIndicatorType = .uikit) -> CGFloat {
     switch indicatorType {
       case .uikit:
         return  height  / 3
@@ -70,20 +70,20 @@ struct ExperimentalActivityIndicators_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       VStack {
-        ExperimentalActivityIndicators()
+        ExperimentalActivityIndicator()
           .frame(width: 50, height: 50)
-        ExperimentalActivityIndicators()
+        ExperimentalActivityIndicator()
           .frame(width: 50, height: 50)
-        ExperimentalActivityIndicators()
+        ExperimentalActivityIndicator()
           .frame(width: 50, height: 50)
       }.environment(\.colorScheme, .light)
       
       VStack {
-        ExperimentalActivityIndicators()
+        ExperimentalActivityIndicator()
           .frame(width: 50, height: 50)
-        ExperimentalActivityIndicators(indicatorType: .movingsnail)
+        ExperimentalActivityIndicator(indicatorType: .movingsnail)
           .frame(width: 50, height: 50)
-        ExperimentalActivityIndicators(indicatorType: .snail)
+        ExperimentalActivityIndicator(indicatorType: .snail)
           .frame(width: 50, height: 50)
       }.environment(\.colorScheme, .dark)
     }

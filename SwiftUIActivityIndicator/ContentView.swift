@@ -18,7 +18,7 @@ struct ContentView: View {
 
         HStack(spacing: 50) {
           ForEach(0..<(rainbow.count/2)) { index in
-            ExperimentalActivityIndicators(indicatorType: .uikit)
+            ExperimentalActivityIndicator(indicatorType: .uikit)
               .frame(width: 50, height: 50)
               .foregroundColor(self.rainbow[index])
           }
@@ -26,7 +26,7 @@ struct ContentView: View {
 
         HStack(spacing: 50) {
           ForEach((rainbow.count/2)..<rainbow.count) { index in
-            ExperimentalActivityIndicators(indicatorType: .uikit)
+            ExperimentalActivityIndicator(indicatorType: .uikit)
               .frame(width: 50, height: 50)
               .foregroundColor(self.rainbow[index])
           }
@@ -34,7 +34,7 @@ struct ContentView: View {
 
       HStack(spacing: 50) {
         ForEach(0..<(rainbow.count/2)) { index in
-          ExperimentalActivityIndicators(indicatorType: .snail)
+          ExperimentalActivityIndicator(indicatorType: .snail)
             .frame(width: 50, height: 50)
             .foregroundColor(self.rainbow[index])
         }
@@ -42,7 +42,7 @@ struct ContentView: View {
 
       HStack(spacing: 50) {
         ForEach((rainbow.count/2)..<rainbow.count) { index in
-          ExperimentalActivityIndicators(indicatorType: .movingsnail)
+          ExperimentalActivityIndicator(indicatorType: .movingsnail)
             .frame(width: 50, height: 50)
             .foregroundColor(self.rainbow[index])
         }
