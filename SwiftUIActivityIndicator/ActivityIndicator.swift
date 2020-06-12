@@ -10,10 +10,15 @@ import SwiftUI
 
 struct ActivityIndicator: View {
   @State private var currentIndex: Int = 0
+  var speed : Int = 50
 
   func incrementIndex() {
+    if currentIndex == 12 {
+      currentIndex = 0
+    }
+
     currentIndex += 1
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50), execute: {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(speed), execute: {
       self.incrementIndex()
     })
   }

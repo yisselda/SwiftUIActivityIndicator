@@ -16,11 +16,15 @@ enum ExperimentalActivityIndicatorsType: CaseIterable {
 
 struct ExperimentalActivityIndicators: View {
   var indicatorType : ExperimentalActivityIndicatorsType = .uikit
+  var speed : Int = 50
   @State private var currentIndex: Int = 0
 
   func incrementIndex() {
+    if currentIndex == 12 {
+      currentIndex = 0
+    }
     currentIndex += 1
-    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50), execute: {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(speed), execute: {
       self.incrementIndex()
     })
   }
@@ -66,12 +70,12 @@ struct ExperimentalActivityIndicators_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       VStack {
-    ExperimentalActivityIndicators()
-      .frame(width: 50, height: 50)
-      ExperimentalActivityIndicators()
-        .frame(width: 50, height: 50)
-      ExperimentalActivityIndicators()
-        .frame(width: 50, height: 50)
+        ExperimentalActivityIndicators()
+          .frame(width: 50, height: 50)
+        ExperimentalActivityIndicators()
+          .frame(width: 50, height: 50)
+        ExperimentalActivityIndicators()
+          .frame(width: 50, height: 50)
       }.environment(\.colorScheme, .light)
       
       VStack {
